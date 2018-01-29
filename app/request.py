@@ -55,6 +55,8 @@ def process_results(sources_list):
         country = source_item.get('country')
 
         if url:
-            source_object = News(id, name, "description, url, category, language, country)
+            source_object = Source(id, name, "description, url, category, language, country)
+            source_results.append(source_object)
 
-    return source_results
+
+     return source_results
