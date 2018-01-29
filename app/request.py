@@ -20,12 +20,12 @@ def get_sources(category):
     get_source_url = base_url.format(category, api_key)
     with urllib. request.urlopen(get_source_url) as url:
         get_sources_data = url.read()
-        get_sources_responce = json.loads(get_sources_data)
+        get_sources_responce = json.loads(get_sources_data.decode('utf-8'))
 
         sources_results = None
 
         if get_sources_responce['sources']:
-            source_results_list = get_sources_responce['results']
+            source_results_list = get_sources_responce['sources']
             sources_results = process_results(source_results_list)
 
     return sources_results
