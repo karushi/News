@@ -6,11 +6,11 @@ from .models import news
 News = news.News
 
 # Getting api key
-api_key = app.config['45e91ce609c347dfa903f822aac08388']
+api_key = app.config['NEWS_API_KEY']
 
 
 # Getting the news base url
-base_url = app.conifg['https://newsapi.org/v2/sources?category={}&apiKey={}']
+base_url = app.config['NEWS_API_BASE_URL']
 
 
 def get_sources(category):
@@ -46,17 +46,18 @@ def process_results(sources_list):
     '''
 
     source_results = []
-    for source_item in source_list:
+    for source_item in sources_list:
         id = source_item.get('id')
-        name = source_item.get('original_name')
+        name = source_item.get('original_namecategory')
         description = source_item.get('description')
         url = source_item.get('url')
         language = source_item.get('language')
         country = source_item.get('country')
+        category = source_item.get('category')
 
         if url:
-            source_object = Source(id, name, "description, url, category, language, country)
+            source_object = News(id, name, description, url, category, language, country)
             source_results.append(source_object)
 
 
-     return source_results
+        return source_results

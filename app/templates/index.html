@@ -7,14 +7,13 @@
         {% else %}
         <title> Welcome to the best NewsReview website </title>
         {% endif %}
+        {% import 'macros.html' as macro%}
     </head>
     <body>
       <!-- Gneral news section  -->
              <h3> general</h3>
               <ul>
-                 {% for general_sources in general %}
-                     <li>{{ general_sourses.title}}</li>
-                 {% endfor %}
-             </ul>
+                 {{ macro.displaySourceList(general)}}
+              </ul>
     </body>
 </html

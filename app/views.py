@@ -1,6 +1,6 @@
 from flask import render_template
 from app import app
-from .requst import get_sources
+from .request import get_sources
 
 # Views
 
