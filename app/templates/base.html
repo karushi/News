@@ -7,10 +7,16 @@
         {% else %}
         <title> Welcome to the best News Review website </title>
         {% endif %}
-        {% extends 'bootstrap/base.html'%}
+        {# {% extends 'bootstrap/base.html'%}#}
     </head>
     <body>
         <!-- Content block -->
+        {% extends 'bootstrap/base.html'%}
+
+        <!-- Navbar block  -->
+          {% block navbar %}
+          {% include 'navbar.html' %}
+           {% endblock %}
 
         {% block content %}
 
