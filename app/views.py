@@ -13,8 +13,8 @@ def index():
     '''
     # getting general source
     general_sources = get_sources('general')
-    print(general_sources)
-    title = 'Home - Welcome to The best New Review Website Online'
+
+    title = 'Home - Welcome to The best News Review Website Online'
     return render_template('index.html', title=title, general=general_sources)
 
 
