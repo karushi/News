@@ -1,7 +1,8 @@
-{% macro displaysourceList(movie_list) %}
+{% macro displaySourceList(source_list) %}
 
     {% for source in source_list %}
-        <li>{{ source.title}}</li>
+        <li>{{ source.name}}</li>
+        
     {% endfor %}
 
 {% endmacro %}

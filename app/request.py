@@ -28,7 +28,7 @@ def get_sources(category):
             source_results_list = get_sources_responce['sources']
             sources_results = process_results(source_results_list)
 
-    return sources_results
+        return sources_results
 
 
 def process_results(sources_list):
@@ -48,7 +48,7 @@ def process_results(sources_list):
     source_results = []
     for source_item in sources_list:
         id = source_item.get('id')
-        name = source_item.get('original_namecategory')
+        name = source_item.get('name')
         description = source_item.get('description')
         url = source_item.get('url')
         language = source_item.get('language')
@@ -59,5 +59,25 @@ def process_results(sources_list):
             source_object = News(id, name, description, url, category, language, country)
             source_results.append(source_object)
 
+    return source_results
 
-        return source_results
+
+# def get_source(category):
+#     get_source_details_url = base_url.format(category, api_key)
+#     with urllib. request.urlopen(get_source_details_url) as url:
+#         get_details_data = url.read()
+#         get_details_responce = json.loads(get_details_data.decode('utf-8'))
+#
+#         source_object = None
+#         if source_details_responce:
+#             category = get_details_responce.get('category')
+#             name = get_details_responce.get('original_name')
+#             description = get_details_responce.get('description')
+#             url = get_details_responce.get('url')
+#             language = get_details_responce.get('language')
+#             country = get_details_responce.get('country')
+#             category = get_details_responce.get('category')
+#
+#             source_object = News(id, name, description, url, category, language, country)
+#
+#     return source_object
