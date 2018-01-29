@@ -1,5 +1,6 @@
 from flask import render_template
 from app import app
+from .requst import get_sources
 
 # Views
 
@@ -10,9 +11,11 @@ def index():
     '''
     View root page function that returns the index page and its data
     '''
-
+    # getting general source
+    general_sources = get_sources('general')
+    print(general_sources)
     title = 'Home - Welcome to The best New Review Website Online'
-    return render_template('index.html', title=title)
+    return render_template('index.html', title=title, general=general_sources)
 
 
 @app.route('/news/<int:news_id>')
