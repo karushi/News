@@ -97,18 +97,18 @@ def process_articles(articles_list):
         id = source_dictionary['id']
         name = source_dictionary['name']
 
-    #     author = result.get('author')
-    #     title = result.get('title')
-    #     description = result.get('description')
-    #     url = result.get('url')
-    #     urlToImage = result.get('urlToImage')
-    #     publishedAt = result.get('publishedAt')
-    #
-    #     if urlToImage:
-    #         print (id)
-    #         article_object = Article(id, name, author, title, description, url,
-    #                                  urlToImage, publishedAt)
-    #
-    #         article_results.append(article_object)
-    #
-    # return article_results
+        author = result.get('author')
+        title = result.get('title')
+        description = result.get('description')
+        url = result.get('url')
+        urlToImage = result.get('urlToImage')
+        publishedAt = result.get('publishedAt')
+
+        if urlToImage:
+            print (id)
+            article_object = Article(id, name, author, title, description, url,
+                                     urlToImage, publishedAt)
+
+            article_results.append(article_object)
+
+    return article_results
