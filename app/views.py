@@ -26,8 +26,8 @@ def index():
                            technology=technology_sources,
                            entertainment=entertainment_sources,
                            general=general_sources)
-#
-#
+
+
 @app.route('/news/<id>')
 def news(id):
     '''
