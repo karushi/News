@@ -28,12 +28,12 @@ def index():
                            general=general_sources)
 #
 #
-# @app.route('/news/<id>')
-# def news(id):
-#     '''
-#     view page function that returns the news articles and its data
-#     '''
-#     articles = get_articles(id)
-#     title = 'Home - Welcome to the best Online News Website'
-#
-#     return render_template('news.html', articles=articles, title=title)
+@app.route('/news/<id>')
+def news(id):
+    '''
+    view page function that returns the news articles and its data
+    '''
+    articles = get_articles(id)
+    title = 'Home - Welcome to the best Online News Website'
+
+    return render_template('news.html', articles=articles, title=title)
