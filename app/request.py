@@ -1,9 +1,10 @@
 from app import app
 import urllib.request
 import json
-from .models import news
+from .models import news, articles
 
 News = news.News
+Article = articles.Article
 
 # Getting api key
 api_key = app.config['NEWS_API_KEY']
@@ -11,6 +12,7 @@ api_key = app.config['NEWS_API_KEY']
 
 # Getting the news base url
 base_url = app.config['NEWS_API_BASE_URL']
+article_url = app.config['ARTICLE_API_BASE_URL']
 
 
 def get_sources(category):
@@ -33,7 +35,8 @@ def get_sources(category):
 
 def process_results(sources_list):
     '''
-    Function  that processes the source result and transform them to a list of Objects
+    Function  that processes the source result and transform them to a list of
+    Objects
 
     Args:
         sources_list: A list of dictionaries that contain movie details
@@ -56,18 +59,21 @@ def process_results(sources_list):
         category = source_item.get('category')
 
         if url:
-            source_object = News(id, name, description, url, category, language, country)
+            source_object = News(id, name, description, url, category,
+                                 language, country)
             source_results.append(source_object)
 
     return source_results
+
+
 def get_articles(id):
     '''
     Function that gets the json response to url request
     '''
-    get_article_news_url = article_url.format(id,api_key)
+    get_article_news_url = article_url.format(id, api_key)
     with urllib.request.urlopen(get_article_news_url) as url:
         get_articles_data = url.read()
-        get_articles_response = json.loads(get_articles_data)
+        get_articles_response = json.loads(get_articles_data.decode('utf-8'))
 
         article_results = None
 
@@ -100,7 +106,8 @@ def process_articles(articles_list):
 
         if urlToImage:
             print (id)
-            article_object = Article(id, name, author, title, description, url, urlToImage, publishedAt)
+            article_object = Article(id, name, author, title, description, url,
+                                     urlToImage, publishedAt)
 
             article_results.append(article_object)
 
