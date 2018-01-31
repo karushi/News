@@ -4,6 +4,7 @@
 
     <a href="/news/{{source.id}}">
         <li>{{ source.name}}</li>
+        {# <li>{{source.id}}</li>#}
 
     {% endfor %}
 
@@ -11,10 +12,10 @@
 {% macro displayArticleList(articles_list)%}
 
   {% for news in articles_list %}
-
-    <img src="{{news.urlToImage}}" alt="Image Holder"/>
+    <div class="col-xs-3 news-card">
+  <img src="{{news.urlToImage}}" alt="Image"/3>
     <p>{{news.title}}</p>
-
+  </div>
   {% endfor %}
 
 {% endmacro %}

@@ -2,19 +2,19 @@
 <html>
     <head>
         <meta charset="utf-8">
-        {% if title %}
-        <title> {{ title }}</title>
-        {% else %}
-        <title> Welcome to the best NewsReview website </title>
-        {% endif %}
+
         {% extends 'base.html'%}
         {% import 'macros.html' as macro%}
     </head>
     <body>
       <!-- Gneral news section  -->
       {% block content %}
+      <div class="container">
+        <div class="jumbotron">
 
-             <h3> general</h3>
+             <h1> News Highlight </h1>
+           </div>
+         </div>
               <ul>
                  {{ macro.displaySourceList(general)}}
               </ul>
