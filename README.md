@@ -6,8 +6,6 @@ By pauline karushi
 
 It allows you to click on the category of news tab, then select your desired source from a list and it directs you to the articles source
 
-
-
 Requirements
 
 Browser
